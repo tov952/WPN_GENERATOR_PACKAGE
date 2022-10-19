@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="57f7654b-18b4-4055-b385-9f535a3bfb2d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyperclip-1.8.2-py3.6.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyperclip-1.8.2-py3.6.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyperclip-1.8.2-py3.6.egg-info/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyperclip-1.8.2-py3.6.egg-info/installed-files.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyperclip-1.8.2-py3.6.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyperclip/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyperclip/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PSDAssetClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/PSDAssetClasses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WPNAssetClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/WPNAssetClasses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WPN_Generator_GRP.py" beforeDir="false" afterPath="$PROJECT_DIR$/WPN_Generator_GRP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WPN_Interface_Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/WPN_Interface_Utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WPN_Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/WPN_Utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parmtemplatelib.py" beforeDir="false" afterPath="$PROJECT_DIR$/parmtemplatelib.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1zXtAxGXcciAUcuP22e5SFv4rnK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Users\Jason\Documents\houdini18.5\python3.7libs\WPN_GENERATOR_PY" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.psdparser">
+    <configuration name="WPN_Generator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python3.7libs" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Program Files\Side Effects Software\Houdini 18.5.596\bin\hython3.7.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="E:\Users\Jason\Documents\houdini18.5\python3.7libs\WPN_GENERATOR_PY\WPN_Generator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="python3.7libs" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Program Files\Side Effects Software\Houdini 18.5.596\bin\hython3.7.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="psdparser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python3.7libs" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Program Files\Side Effects Software\Houdini 18.5.596\bin\hython3.7.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/Lib/site-packages/psdparse-master/bin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/Lib/site-packages/psdparse-master/bin/psdparser.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.psdparser" />
+        <item itemvalue="Python.WPN_Generator" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="57f7654b-18b4-4055-b385-9f535a3bfb2d" name="Default Changelist" comment="" />
+      <created>1634306120799</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1634306120799</updated>
+      <workItem from="1634306123516" duration="601000" />
+      <workItem from="1634399179117" duration="29618000" />
+      <workItem from="1634569654242" duration="14046000" />
+      <workItem from="1634716497007" duration="693000" />
+      <workItem from="1634745443979" duration="3462000" />
+      <workItem from="1634977378658" duration="29575000" />
+      <workItem from="1635062073299" duration="8780000" />
+      <workItem from="1635175002483" duration="14973000" />
+      <workItem from="1635354575902" duration="13196000" />
+      <workItem from="1635515118673" duration="8604000" />
+      <workItem from="1635606163873" duration="11215000" />
+      <workItem from="1635921862151" duration="16154000" />
+      <workItem from="1636033566866" duration="62621000" />
+      <workItem from="1637084294492" duration="1237000" />
+      <workItem from="1637498006131" duration="21176000" />
+      <workItem from="1641643506700" duration="45000" />
+      <workItem from="1643031121323" duration="1309000" />
+      <workItem from="1643092317831" duration="686000" />
+      <workItem from="1653923825419" duration="1881000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1506" y="175" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1634399865840">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1506" y="175" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1634399865840" />
+    <state x="-1127" y="410" width="678" height="219" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1634746075128">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1127" y="410" width="678" height="219" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1634746075128" />
+    <state x="548" y="359" key="FileChooserDialogImpl" timestamp="1643031225387">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="548" y="359" key="FileChooserDialogImpl/0.0.1920.1040/-1920.-94.1920.1160@0.0.1920.1040" timestamp="1643031225387" />
+    <state x="-1372" y="359" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1634746073940" />
+    <state width="1860" height="164" key="GridCell.Tab.0.bottom" timestamp="1634562003926">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="379" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1634411342040" />
+    <state width="1860" height="164" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1634562003926" />
+    <state width="1860" height="164" key="GridCell.Tab.0.center" timestamp="1634562003926">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="379" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1634411342040" />
+    <state width="1860" height="164" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1634562003926" />
+    <state width="1860" height="164" key="GridCell.Tab.0.left" timestamp="1634562003926">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="379" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1634411342040" />
+    <state width="1860" height="164" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1634562003926" />
+    <state width="1860" height="164" key="GridCell.Tab.0.right" timestamp="1634562003926">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="379" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1634411342040" />
+    <state width="1860" height="164" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1634562003926" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1637582472021">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1492" y="201" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1634413116791" />
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1637582472021" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1634990916806">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1634990916806" />
+    <state x="607" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1635969262047">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="607" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1635969262047" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1635356733395">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1634405035411" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1635356733395" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/WPN_GENERATOR_PY$psdparser.coverage" NAME="psdparser Coverage Results" MODIFIED="1634411342032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Lib/site-packages/psdparse-master/bin" />
+    <SUITE FILE_PATH="coverage/WPN_GENERATOR_PY$WPN_GENERATOR.coverage" NAME="WPN_Generator Coverage Results" MODIFIED="1634401169249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

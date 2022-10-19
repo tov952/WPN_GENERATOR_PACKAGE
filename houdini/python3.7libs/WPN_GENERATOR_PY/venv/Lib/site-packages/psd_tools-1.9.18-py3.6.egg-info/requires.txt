@@ -1,0 +1,10 @@
+docopt>=0.5
+attrs>=19.2.0
+Pillow>=6.2.0
+aggdraw
+numpy
+scipy
+scikit-image
+
+[:python_version < "3.4"]
+enum34
