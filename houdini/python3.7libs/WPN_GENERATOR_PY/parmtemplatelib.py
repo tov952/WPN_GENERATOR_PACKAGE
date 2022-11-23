@@ -135,7 +135,7 @@ def createPTG():
     hou_parm_template3.setTags({"autoscope": "0000000000000000", "script_callback_language": "python"})
     hou_parm_template2.addParmTemplate(hou_parm_template3)
     # Code for parameter template
-    hou_parm_template3 = hou.FloatParmTemplate("thinWallThickness", "Thin-Walled Thickness", 1, default_value=([0.002]), min=0, max=0.01, min_is_strict=True, max_is_strict=False, look=hou.parmLook.Regular, naming_scheme=hou.parmNamingScheme.Base1)
+    hou_parm_template3 = hou.FloatParmTemplate("thinWallThickness", "Thin-Walled Thickness", 1, default_value=([2]), min=1, max=4, min_is_strict=True, max_is_strict=False, look=hou.parmLook.Regular, naming_scheme=hou.parmNamingScheme.Base1)
     hou_parm_template3.setScriptCallbackLanguage(hou.scriptLanguage.Python)
     hou_parm_template3.setTags({"autoscope": "0000000000000000", "script_callback_language": "python"})
     hou_parm_template2.addParmTemplate(hou_parm_template3)
