@@ -56,12 +56,9 @@ def createPTG():
     hou_parm_template2 = hou.FolderParmTemplate("trcCTRLs", "Trace Controls", folder_type=hou.folderType.Simple, default_value=0, ends_tab_group=False)
     hou_parm_template2.setTags({"group_type": "simple"})
     # Code for parameter template
-    hou_parm_template3 = hou.FloatParmTemplate("thresh1", "Brightness Threshold", 1, default_value=([0.01]), min=0, max=1, min_is_strict=False, max_is_strict=False, look=hou.parmLook.Regular, naming_scheme=hou.parmNamingScheme.Base1)
-    hou_parm_template3.setTags({"autoscope": "0000000000000000"})
-    hou_parm_template2.addParmTemplate(hou_parm_template3)
-    # Code for parameter template
-    hou_parm_template3 = hou.FloatParmTemplate("step1", "Resample Step", 1, default_value=([0.52]), min=0.001, max=10, min_is_strict=True, max_is_strict=False, look=hou.parmLook.Regular, naming_scheme=hou.parmNamingScheme.Base1)
-    hou_parm_template3.setTags({"autoscope": "0000000000000000"})
+    hou_parm_template3 = hou.FloatParmTemplate("shpTension", "Shape Tension", 1, default_value=([0.8]), min=0.8, max=1.5, min_is_strict=True, max_is_strict=True, look=hou.parmLook.Regular, naming_scheme=hou.parmNamingScheme.Base1)
+    hou_parm_template3.setScriptCallbackLanguage(hou.scriptLanguage.Python)
+    hou_parm_template3.setTags({"autoscope": "0000000000000000", "script_callback_language": "python"})
     hou_parm_template2.addParmTemplate(hou_parm_template3)
     hou_parm_template.addParmTemplate(hou_parm_template2)
     # Code for parameter template
@@ -88,12 +85,12 @@ def createPTG():
     hou_parm_template3.setTags({"autoscope": "0000000000000000", "script_callback_language": "python"})
     hou_parm_template2.addParmTemplate(hou_parm_template3)
     # Code for parameter template
-    hou_parm_template3 = hou.IntParmTemplate("sides", "Sides", 1, default_value=([12]), min=1, max=50, min_is_strict=True, max_is_strict=False, naming_scheme=hou.parmNamingScheme.Base1, menu_items=([]), menu_labels=([]), icon_names=([]), item_generator_script="", item_generator_script_language=hou.scriptLanguage.Python, menu_type=hou.menuType.Normal, menu_use_token=False)
+    hou_parm_template3 = hou.IntParmTemplate("sides", "Sides", 1, default_value=([100]), min=1, max=100, min_is_strict=True, max_is_strict=False, naming_scheme=hou.parmNamingScheme.Base1, menu_items=([]), menu_labels=([]), icon_names=([]), item_generator_script="", item_generator_script_language=hou.scriptLanguage.Python, menu_type=hou.menuType.Normal, menu_use_token=False)
     hou_parm_template3.setScriptCallbackLanguage(hou.scriptLanguage.Python)
     hou_parm_template3.setTags({"autoscope": "0000000000000000", "script_callback_language": "python"})
     hou_parm_template2.addParmTemplate(hou_parm_template3)
     # Code for parameter template
-    hou_parm_template3 = hou.FloatParmTemplate("WallThickness", "Wall Thickness", 1, default_value=([-0.2]), min=-0.2, max=0.2, min_is_strict=False, max_is_strict=False, look=hou.parmLook.Regular, naming_scheme=hou.parmNamingScheme.Base1)
+    hou_parm_template3 = hou.FloatParmTemplate("WallThickness", "Wall Thickness", 1, default_value=([0.3]), min=0.2, max=1, min_is_strict=True, max_is_strict=True, look=hou.parmLook.Regular, naming_scheme=hou.parmNamingScheme.Base1)
     hou_parm_template3.setScriptCallbackLanguage(hou.scriptLanguage.Python)
     hou_parm_template3.setTags({"autoscope": "0000000000000000", "script_callback_language": "python"})
     hou_parm_template2.addParmTemplate(hou_parm_template3)
@@ -216,20 +213,6 @@ def createPTG():
     hou_parm_template4.setScriptCallbackLanguage(hou.scriptLanguage.Python)
     hou_parm_template4.setTags({"autoscope": "0000000000000000", "script_callback_language": "python"})
     hou_parm_template3.addParmTemplate(hou_parm_template4)
-    hou_parm_template2.addParmTemplate(hou_parm_template3)
-    hou_parm_template.addParmTemplate(hou_parm_template2)
-    # Code for parameter template
-    hou_parm_template2 = hou.FolderParmTemplate("bvlCTRLs", "Bevel Controls", folder_type=hou.folderType.Simple, default_value=0, ends_tab_group=False)
-    hou_parm_template2.setTags({"group_type": "simple"})
-    # Code for parameter template
-    hou_parm_template3 = hou.FloatParmTemplate("bvlFlatAngle", "Bevel Flat Angle", 1, default_value=([51.8]), min=0, max=180, min_is_strict=True, max_is_strict=True, look=hou.parmLook.Regular, naming_scheme=hou.parmNamingScheme.Base1)
-    hou_parm_template3.setScriptCallbackLanguage(hou.scriptLanguage.Python)
-    hou_parm_template3.setTags({"autoscope": "0000000000000000", "script_callback_language": "python"})
-    hou_parm_template2.addParmTemplate(hou_parm_template3)
-    # Code for parameter template
-    hou_parm_template3 = hou.FloatParmTemplate("bvlWidth", "Bevel Width", 1, default_value=([0.002]), min=0, max=1, min_is_strict=True, max_is_strict=False, look=hou.parmLook.Regular, naming_scheme=hou.parmNamingScheme.Base1)
-    hou_parm_template3.setScriptCallbackLanguage(hou.scriptLanguage.Python)
-    hou_parm_template3.setTags({"autoscope": "0000000000000000", "script_callback_language": "python"})
     hou_parm_template2.addParmTemplate(hou_parm_template3)
     hou_parm_template.addParmTemplate(hou_parm_template2)
     hou_parm_template_group.append(hou_parm_template)
