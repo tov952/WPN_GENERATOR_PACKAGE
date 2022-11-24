@@ -51,7 +51,7 @@ def reload(this_node):
     for container in containers:
         nodes = container.children()
         for node in nodes:
-            node.parm("reload").pressButton()
+            node.parm("recook").pressButton()
 
 
 def setRamp(this_parm, this_node, targetNodePath):

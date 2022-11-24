@@ -198,6 +198,7 @@ def renameChildLayersAndSave(PCDict):
     psdPath = dirname + "/" + filename + "_renamed" + ext
 
     for parent, children in PCDict.items():
+        parent.visible = True
         newChildNameList = []
         for child in children:
             #print("child:" + child.name +  ".parent is: " + child.parent.name)
@@ -215,6 +216,7 @@ def renameChildLayersAndSave(PCDict):
             # newChildNameList.append("_".join(flatSplitParentlist) + "_" + child.name)
         """Rename group first"""
         for i, child in enumerate(children):
+            child.visible = True
             if child.is_group():
                 group = child
                 ogGroupName = group.name
