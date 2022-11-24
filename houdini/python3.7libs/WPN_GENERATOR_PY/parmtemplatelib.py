@@ -10,8 +10,9 @@ def createPTG():
     hou_parm_template2.setTags({"autoscope": "0000000000000000", "filechooser_pattern": "*.psd"})
     hou_parm_template.addParmTemplate(hou_parm_template2)
     # Code for parameter template
-    hou_parm_template2 = hou.ButtonParmTemplate("reload", "Reload PSD")
-    hou_parm_template2.setTags({"autoscope": "0000000000000000"})
+    hou_parm_template2 = hou.ButtonParmTemplate("recook", "Recook")
+    hou_parm_template2.setScriptCallbackLanguage(hou.scriptLanguage.Python)
+    hou_parm_template2.setTags({"autoscope": "0000000000000000", "script_callback_language": "python"})
     hou_parm_template.addParmTemplate(hou_parm_template2)
     # Code for parameter template
     hou_parm_template2 = hou.StringParmTemplate("layer_name1", "Layer Name", 1, default_value=(["LWR_RCVR"]), naming_scheme=hou.parmNamingScheme.Base1, string_type=hou.stringParmType.Regular, menu_items=([]), menu_labels=([]), icon_names=([]), item_generator_script="opmenu -l -a trace_psd_file1 layer_name1", item_generator_script_language=hou.scriptLanguage.Hscript, menu_type=hou.menuType.StringReplace)
@@ -166,6 +167,7 @@ def createPTG():
     hou_parm_template2.addParmTemplate(hou_parm_template3)
     # Code for parameter template
     hou_parm_template3 = hou.RampParmTemplate("crveShpProfile", "Carved Shape Profile", hou.rampParmType.Float, default_value=3, default_basis=None, color_type=None)
+    hou_parm_template3.setConditional(hou.parmCondType.HideWhen, "{ drawnToggle == 1 }")
     hou_parm_template3.setScriptCallbackLanguage(hou.scriptLanguage.Python)
     hou_parm_template3.setTags({"autoscope": "0000000000000000", "rampfloatdefault": "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 0.0066137565299868584 ) 2value ( 1 ) 2interp ( linear ) 3pos ( 1 ) 3value ( 1 ) 3interp ( linear )", "script_callback_language": "python"})
     hou_parm_template2.addParmTemplate(hou_parm_template3)
