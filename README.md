@@ -59,6 +59,4 @@ You can now play around with the parms to get something out of it! (Or go with y
 
 Feel free to fork this and make this project better! :)
 
-# TODO:
-- [ ] Refactor and Cleanup
-- [ ] Fix geometry generation to be more reliable (instead of simply using booleans)
+
