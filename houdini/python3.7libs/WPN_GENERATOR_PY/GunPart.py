@@ -10,7 +10,7 @@ class gunpart():
 
         self.name = name + str(index+1)
         self.parmPrefix = GPType.name + str(index+1)
-        self.nodeType = "Jason_GunPart"
+        self.nodeType = "WPN::GUNPART_ASSET::1.0"
         self.GPType = GPType
         self.node = None
         self.containerName = name+"_CONTAINER"

@@ -8,10 +8,10 @@ import inspect
 from functools import wraps
 imp.reload(psdAsset)
 
-gunPartHDAName = "GUNPART_ASSET"
-cutoutHDAName = "CUTOUT_ASSET"
+gunPartHDAName = "WPN::GUNPART_ASSET::1.0"
+cutoutHDAName = "WPN::SIDE_CUTOUT_ASSET::1.0"
 #addonHDAName  = "ADDON_ASSET"
-frontCutoutHDAName = "FRONT_CUTOUT_ASSET"
+frontCutoutHDAName = "WPN::FRONT_CUTOUT_ASSET::1.0"
 
 debug = False
 
@@ -26,7 +26,7 @@ class GunPartContainer(psdAsset.Container):
             #print(childlayer.name + " is FRONT CUTOUT! Creating FrontCutoutAsset")
             childAsset = FrontCutoutAsset(childlayer, self)
         elif fnmatch.fnmatch(childlayer.name, "*SIDE_ADDON*"):
-            #print(childlayer.name + " is CUTOUT! Creating CutoutAsset")
+            #print(childlayer.name + " is ADDON! Creating AddonAsset")
             childAsset = AddonAsset(childlayer, self)
         elif fnmatch.fnmatch(childlayer.name, "*SIDE_CUTOUT*"):
             #print(childlayer.name + " is CUTOUT! Creating CutoutAsset")
