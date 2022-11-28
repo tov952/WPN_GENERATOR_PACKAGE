@@ -2,9 +2,14 @@
 from WPN_GENERATOR_PY import WPN_Generator_GRP as WPNGEN
 import imp
 import pprint
-parmValueDict = {}
 import pyperclip
+import hou
+from os.path import exists
+from os.path import split
+from os import startfile
 
+
+parmValueDict = {}
 
 def copyCTRLs(this_node):
     print("Copying Controls")
@@ -85,3 +90,24 @@ def getAllRampParms(this_node):
             pass
 
     return rampParms
+
+
+def copyFilePath(this_node):
+    fbxNode = this_node.node("EXPORT/filmboxfbx1")
+    exportFilepath = fbxNode.parm("sopoutput").eval()
+
+    if exists(exportFilepath):
+        pyperclip.copy(exportFilepath)
+        hou.ui.displayMessage("EXPORT FILEPATH has been copied to clipboard!")
+    else:
+        hou.ui.displayMessage("No export found! Please export first!")
+    
+def goToFolder(this_node):
+    fbxNode = this_node.node("EXPORT/filmboxfbx1")
+    exportFilepath = fbxNode.parm("sopoutput").eval()
+
+    if exists(exportFilepath):
+        startfile(split(exportFilepath)[0])
+    else:
+        hou.ui.displayMessage("No export found! Please export first!")
+    

@@ -253,7 +253,8 @@ class ChildAsset(object):
 
     """TODO REFACTOR THIS, maybe too specific?"""
     def genOverallMods(self):
-        overallCTRLFolderPT = self.PTG.findFolder("Overall")
+        overallCTRLFolderPT = self.PTG.containingFolder("copyCTRLS")
+        #print(self.PTG.name())
         if len(self.flatParmMods) > 0 and self.masterGroup == True:
             modifierFolderPT = hou.FolderParmTemplate(self.layerPrefix + "Modifiers",self.layerPrefix + " Modifiers", folder_type=hou.folderType.Simple)
             modifierFolderName = modifierFolderPT.name()
@@ -336,16 +337,14 @@ class ChildAsset(object):
         imp.reload(PTL)
         genPTG = PTL.createPTG()
         self.PTG = self.parentNode.parmTemplateGroup()
-        advancedFolderPT = hou.FolderParmTemplate("advanced", "Advanced", folder_type = hou.folderType.Collapsible)
-        if self.PTG.findFolder("Advanced") != None:
-            advancedFolder = self.PTG.findFolder("Advanced")
-        else:
-            self.PTG.append(advancedFolderPT)
+        #advancedFolderPT = hou.FolderParmTemplate("advanced", "Advanced", folder_type = hou.folderType.Collapsible)
+        #advancedFolder = self.PTG.containingFolder("refreshRamps")
+        #self.PTG.append(advancedFolderPT)
         for parmTemplate in genPTG.entries():
             if not fnmatch.fnmatch(parmTemplate.name(), "*exclude*"):
                 parmTemplate.setName(self.name)
                 parmTemplate.setLabel(self.name)
-                advancedFolder = self.PTG.findFolder("Advanced")
+                advancedFolder = self.PTG.containingFolder("refreshRamps")
                 self.PTG.appendToFolder(advancedFolder, parmTemplate)
                 self.recursiveSetParmPrefixAndConditionals(parmTemplate)
 
