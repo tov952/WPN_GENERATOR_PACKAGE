@@ -1,35 +1,26 @@
 from WPN_GENERATOR_PY import PSDAssetClasses as psdAsset
-from WPN_GENERATOR_PY import WPN_Utils
 
 import fnmatch
-import pprint
 import imp
-import inspect
-from functools import wraps
 imp.reload(psdAsset)
 
+""" ------------------GLOBALS------------------------ """
 gunPartHDAName = "WPN::GUNPART_ASSET::1.0"
 cutoutHDAName = "WPN::SIDE_CUTOUT_ASSET::1.0"
-#addonHDAName  = "ADDON_ASSET"
 frontCutoutHDAName = "WPN::FRONT_CUTOUT_ASSET::1.0"
 
 debug = False
-
-
+""" ------------------GLOBALS------------------------ """
 
 class GunPartContainer(psdAsset.Container):
     def childAssetDefinition(self, childLayerName, childlayer):
         if childLayerName == "SIDE":
-            print(childlayer.name + " is SIDE! Creating GunPartAsset")
             childAsset = GunPartAsset(childlayer, self)
         elif fnmatch.fnmatch(childlayer.name, "*FRONT_CUTOUT*"):
-            #print(childlayer.name + " is FRONT CUTOUT! Creating FrontCutoutAsset")
             childAsset = FrontCutoutAsset(childlayer, self)
         elif fnmatch.fnmatch(childlayer.name, "*SIDE_ADDON*"):
-            #print(childlayer.name + " is ADDON! Creating AddonAsset")
             childAsset = AddonAsset(childlayer, self)
         elif fnmatch.fnmatch(childlayer.name, "*SIDE_CUTOUT*"):
-            #print(childlayer.name + " is CUTOUT! Creating CutoutAsset")
             childAsset = CutoutAsset(childlayer, self)
         else:
             childAsset = None
