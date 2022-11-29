@@ -266,7 +266,7 @@ class ChildAsset(object):
                 modifierFolder= self.PTG.find(modifierFolderName)
                 factorParmName = self.name + "_" + parmToModName + "_FACTOR"
                 factorParmLabel = parmToModName + " Factor"
-                factorPT = hou.FloatParmTemplate(factorParmName,factorParmLabel, 1, default_value=(factor,))
+                factorPT = hou.FloatParmTemplate(factorParmName,factorParmLabel, 1, default_value=(factor[0],), min = factor[1], max = factor[2])
                 self.factorParmNames[factorParmName] = parmToModName
                 self.PTG.appendToFolder(modifierFolder, factorPT)
             self.parentNode.setParmTemplateGroup(self.PTG, rename_conflicting_parms= True)
@@ -354,11 +354,6 @@ class ChildAsset(object):
                 self.PTG.replace(parmTemplate.name(), renamedParmTemplate)
                 """Get parmSources only within this Asset"""
                 self.parmSources.append(renamedParmTemplate)
-
-
-
-
-
 
 
     def postNodeCreation(self):

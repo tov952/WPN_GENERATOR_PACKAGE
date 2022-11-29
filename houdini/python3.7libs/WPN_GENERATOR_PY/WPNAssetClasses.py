@@ -47,7 +47,7 @@ class GunPartAsset(psdAsset.ChildAsset):
                           "SPINE_layer_name1": self.spineLayer,
                           }
         self.flatParmMods = {"zThickness": 0.012}
-        self.parmModFactor = {"zThickness": 0.85} #Parms to mult modify (mult)
+        self.parmModFactor = {"zThickness": [0.85, 0.5, 1.0]} #Parm to create factor for : [default value, minimum value, maximum value]
 
 
     def setToSameDepthLayer(self, layerName):
