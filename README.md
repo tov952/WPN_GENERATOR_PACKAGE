@@ -17,7 +17,7 @@ https://learncreategame.com/techart/houdini-environment-setup/
 
    You should see the following structure:
 
-   ![image](https://user-images.githubusercontent.com/59757164/196758728-d9c4990a-3a96-40b3-9391-f02a1b827443.png)
+   ![image](https://user-images.githubusercontent.com/59757164/204878762-a7a11d1d-cf51-417e-8690-4cedaa3c0ef7.png)
 
 2. In Houdini > File > Import > Houdini Digital Asset:
 
@@ -57,6 +57,13 @@ You would see a nice interface + a somewhat normal looking model:
 
 You can now play around with the parms to get something out of it! (Or go with your creativity and use the TEST_PSDs as a template to draw up something you like)
 
-Feel free to fork this and make this project better! :)
+# Alternatively, you can test with these files! (Just open up and they should work after installing the package)
+![image](https://user-images.githubusercontent.com/59757164/204879372-0d298656-e083-4e4a-8702-91a49cb3e6bb.png)
+
+Various Renders of the files:
+AK:
+![AK](https://user-images.githubusercontent.com/59757164/204882246-91340fea-4579-423a-9fc3-fe02a085d986.png)
+AK_Modded:
+![AK_modify](https://user-images.githubusercontent.com/59757164/204882379-488ee9fb-70a5-4df4-930e-6bbe373335a5.png)
 
 
