@@ -57,7 +57,7 @@ You would see a nice interface + a somewhat normal looking model:
 
 You can now play around with the parms to get something out of it! (Or go with your creativity and use the TEST_PSDs as a template to draw up something you like)
 
-# Alternatively, you can test with these files! (Just open up and they should work after installing the package)
+Alternatively, you can test with these files! (Just open up and they should work after installing the package)
 ![image](https://user-images.githubusercontent.com/59757164/204879372-0d298656-e083-4e4a-8702-91a49cb3e6bb.png)
 
 Various Renders of the files:
