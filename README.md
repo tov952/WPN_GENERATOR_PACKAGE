@@ -61,9 +61,13 @@ Alternatively, you can test with these files! (Just open up and they should work
 ![image](https://user-images.githubusercontent.com/59757164/204879372-0d298656-e083-4e4a-8702-91a49cb3e6bb.png)
 
 Various Renders of the files:
+
 AK:
 ![AK](https://user-images.githubusercontent.com/59757164/204882246-91340fea-4579-423a-9fc3-fe02a085d986.png)
 AK_Modded:
 ![AK_modify](https://user-images.githubusercontent.com/59757164/204882379-488ee9fb-70a5-4df4-930e-6bbe373335a5.png)
-
+BattleRifle:
+![BattleRifleV04](https://user-images.githubusercontent.com/59757164/204883788-8a911656-2879-4930-915b-b6f39275d3fd.png)
+FutureCarbine:
+![FutureCarbine](https://user-images.githubusercontent.com/59757164/204883863-82588d17-79a3-4463-a706-ec715e25f9cd.png)
 
