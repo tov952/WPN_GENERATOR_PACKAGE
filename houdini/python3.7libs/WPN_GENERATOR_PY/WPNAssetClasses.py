@@ -58,9 +58,10 @@ class GunPartAsset(psdAsset.ChildAsset):
             #print("parentObj.psdGroup :" + layer.name)
             if fnmatch.fnmatch(layer.name, layerName):
                 foundLayer = layer
-                if debug:
-                    print("DEBUG: " + self.name + " Found " + layer.name)
-                return foundLayer
+                if foundLayer.is_visible():
+                    if debug:
+                        print("DEBUG: " + self.name + " Found " + layer.name)
+                    return foundLayer
         if foundLayer == None:
             if debug:
                 print("No " + layerName + " layer found!" )

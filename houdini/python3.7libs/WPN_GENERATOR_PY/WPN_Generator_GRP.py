@@ -24,7 +24,7 @@ debug = False
 """ ------------------GLOBALS------------------------ """
 
 
-def rebuild(this_node):
+def rebuild(this_node, forceVisible):
     global savedPSD
     geoContainer = this_node.node(GEO_CONTAINER)
 
@@ -39,7 +39,7 @@ def rebuild(this_node):
         print("---------------------Get Parent-Child Dict---------------------------")
     PCDict = getPSDGrpAndChildren(this_node)
     print("---------------------Saving Renamed PSDs-----------------------------")
-    savedPSDPath = renameChildLayersAndSave(PCDict)
+    savedPSDPath = renameChildLayersAndSave(PCDict, forceVisible)
     savedPSD = PSDImage.open(savedPSDPath)
     generator = psdAsset.Generator(savedPSD)
     generator.genContainerObjs(wpnAsset.GunPartContainer)
@@ -121,19 +121,21 @@ def SetValidLayerName(this_node, validPSDLayerNames):
         except:
             print("ERROR: Setting " + noShapeName + "_layer_name1 failed, Check LayerName Conventions; [psdAsset]#_[shapeType]")
 
-def renameChildLayersAndSave(PCDict):
+def renameChildLayersAndSave(PCDict, forceVisible = True):
     (dirname, filename) = os.path.split(psdFilepath)
     (filename, ext) = os.path.splitext(filename)
     psdPath = dirname + "/" + filename + "_renamed" + ext
 
     for parent, children in PCDict.items():
-        parent.visible = True
+        if forceVisible:
+            parent.visible = True
         newChildNameList = []
         for child in children:
             newChildNameList.append(child.parent.name + "_" + child.name)
         """Rename group first"""
         for i, child in enumerate(children):
-            child.visible = True
+            if forceVisible:
+                child.visible = True
             if child.is_group():
                 group = child
                 ogGroupName = group.name

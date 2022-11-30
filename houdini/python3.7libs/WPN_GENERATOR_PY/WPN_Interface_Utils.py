@@ -3,13 +3,14 @@ from WPN_GENERATOR_PY import WPN_Generator_GRP as WPNGEN
 import imp
 import pyperclip
 import hou
+
 from os.path import exists
 from os.path import split
 from os import startfile
-
+from os import sep
 """ ------------------GLOBALS------------------------ """
 parmValueDict = {}
-
+dontCopyParms = ['crveShp', 'contourBased','useDrawnSpine', 'shpSwitch', 'excludeParentCutouts']
 debug = False
 """ ------------------GLOBALS------------------------ """
 
@@ -38,20 +39,18 @@ def saveParmValues(this_node):
 def setParmValues(this_node):
     global parmValueDict
     for parm in this_node.spareParms():
-        try:
-            if debug:
-                print("Setting " + parm.name() + " with :" + str(parmValueDict[parm.name()]))
+        if debug:
+            print("Setting " + parm.name() + " with :" + str(parmValueDict[parm.name()]))
+        if  parm.name().split("_")[-1] in dontCopyParms:
+            continue
+        else:
             parm.set(parmValueDict[parm.name()])
-        except:
-            if debug:
-                print("skipping "+ parm.name() + " value set")
-            pass
 
 
-def reload(this_node):
+def reload(this_node, forceVisible = True):
     imp.reload(WPNGEN)
     PCDict = WPNGEN.getPSDGrpAndChildren(this_node)
-    WPNGEN.renameChildLayersAndSave(PCDict)
+    WPNGEN.renameChildLayersAndSave(PCDict, forceVisible)
     geoCon = this_node.node("GEO_CONTAINER")
     containers = geoCon.glob("*_CONTAINER")
     for container in containers:
@@ -95,7 +94,7 @@ def copyFilePath(this_node):
     exportFilepath = fbxNode.parm("sopoutput").eval()
 
     if exists(exportFilepath):
-        pyperclip.copy(exportFilepath)
+        pyperclip.copy(exportFilepath.replace("/", '\\'))
         hou.ui.displayMessage("EXPORT FILEPATH has been copied to clipboard!")
     else:
         hou.ui.displayMessage("No export found! Please export first!")
