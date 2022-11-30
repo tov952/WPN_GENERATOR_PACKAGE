@@ -2,9 +2,9 @@
  
 WPN Generator OTL toolsets for Houdini FX 18.5.596 and Above!
 
-Check out the short explainer here:
+Check out the short quickstart here:
 
-https://vimeo.com/716740961
+https://vimeo.com/776701566
 
 Packaged to be easy-to-install thanks to Christian Akesson and his tutorial!
 https://learncreategame.com/techart/houdini-environment-setup/
