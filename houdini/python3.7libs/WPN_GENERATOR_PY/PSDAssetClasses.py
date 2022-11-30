@@ -3,12 +3,10 @@ from WPN_GENERATOR_PY import WPN_Utils
 import hou
 import fnmatch
 import pprint
-import pathlib
-import imp
 
-
-
+""" ------------------GLOBALS------------------------ """
 debug = False
+""" ------------------GLOBALS------------------------ """
 
 class Generator(object):
 
@@ -28,7 +26,6 @@ class Generator(object):
             if layer.is_group():
                 group = layer
                 groupName = group.name
-                #print(layer.name + " is group! Creating Container!")
                 container = containerClass(group, self)
                 self.AllContainerObjs.append(container)
         self.genContainerAssetObjs()
@@ -107,7 +104,8 @@ class Container(object):
     def getParentContainerNode(self, geoCon):
         if self.parent.name != "Root":
             self.parentContainerNode = geoCon.node(self.parent.name + "_CONTAINER")
-            print("Found " + self.parent.name + "_CONTAINER for " + self.name)
+            if debug:
+                print("Found " + self.parent.name + "_CONTAINER for " + self.name)
 
 
     def createContainer(self):
@@ -207,8 +205,6 @@ class ChildAsset(object):
             print("Parent Objs: " + self.parentObj.name)
         else:
             print("Parent Objs: Root ")
-        #print("Child Objs: ")
-        #pprint.pprint( [o.name for o in self.childObjs])
         print("-----------------------")
 
 
@@ -240,7 +236,6 @@ class ChildAsset(object):
         parmSourceNames = [ parmSource.name() for parmSource in self.parmSources]
         if debug:
             print("Getting ParmSourceTargetDict in " + node.name() + " for " + parmPrefix)
-        #pprint.pprint(parmSourceNames)
         for parm in node.parms():
             matchParmList = fnmatch.filter(parmSourceNames, "*" + parm.name())
             if len(matchParmList)>0:
@@ -253,7 +248,7 @@ class ChildAsset(object):
 
     """TODO REFACTOR THIS, maybe too specific?"""
     def genOverallMods(self):
-        overallCTRLFolderPT = self.PTG.findFolder("Overall")
+        overallCTRLFolderPT = self.PTG.containingFolder("copyCTRLS")
         if len(self.flatParmMods) > 0 and self.masterGroup == True:
             modifierFolderPT = hou.FolderParmTemplate(self.layerPrefix + "Modifiers",self.layerPrefix + " Modifiers", folder_type=hou.folderType.Simple)
             modifierFolderName = modifierFolderPT.name()
@@ -271,8 +266,7 @@ class ChildAsset(object):
                 modifierFolder= self.PTG.find(modifierFolderName)
                 factorParmName = self.name + "_" + parmToModName + "_FACTOR"
                 factorParmLabel = parmToModName + " Factor"
-                factorPT = hou.FloatParmTemplate(factorParmName,factorParmLabel, 1, default_value=(factor,))
-                #print(modifierFolderPT.name())
+                factorPT = hou.FloatParmTemplate(factorParmName,factorParmLabel, 1, default_value=(factor[0],), min = factor[1], max = factor[2])
                 self.factorParmNames[factorParmName] = parmToModName
                 self.PTG.appendToFolder(modifierFolder, factorPT)
             self.parentNode.setParmTemplateGroup(self.PTG, rename_conflicting_parms= True)
@@ -288,7 +282,6 @@ class ChildAsset(object):
 
     def linkFactorParmMods(self):
         for parmModName, parmTargetName in self.factorParmNames.items():
-            #print("gothere")
             sourceParm = self.parentNode.parm(parmModName)
             for childObj in self.childObjs:
                 node = childObj.node
@@ -323,33 +316,17 @@ class ChildAsset(object):
     def replicateParmsInHDA(self):
         if debug:
             print("DEBUG: " + self.name + " Replicating Parms.")
-        self.ptg = self.node.parmTemplateGroup()
-        code = "import hou \n"
-        code += self.ptg.asCode(function_name = "createPTG")
-        parmTemplateLibPath = str(pathlib.Path(__file__).parent.resolve()) + "/parmTemplatelib.py"
-        source_file = open(
-            parmTemplateLibPath,
-            "w")
-        source_file.write(code)
-        source_file.close()
-        from WPN_GENERATOR_PY import parmtemplatelib as PTL
-        imp.reload(PTL)
-        genPTG = PTL.createPTG()
+        hdaPTG = self.node.parmTemplateGroup()
         self.PTG = self.parentNode.parmTemplateGroup()
-        advancedFolderPT = hou.FolderParmTemplate("advanced", "Advanced", folder_type = hou.folderType.Collapsible)
-        if self.PTG.findFolder("Advanced") != None:
-            advancedFolder = self.PTG.findFolder("Advanced")
-        else:
-            self.PTG.append(advancedFolderPT)
-        for parmTemplate in genPTG.entries():
+
+        for parmTemplate in hdaPTG.entries():
             if not fnmatch.fnmatch(parmTemplate.name(), "*exclude*"):
                 parmTemplate.setName(self.name)
                 parmTemplate.setLabel(self.name)
-                advancedFolder = self.PTG.findFolder("Advanced")
+                advancedFolder = self.PTG.containingFolder("refreshRamps")
                 self.PTG.appendToFolder(advancedFolder, parmTemplate)
                 self.recursiveSetParmPrefixAndConditionals(parmTemplate)
 
-                #self.parmSources = [ parmTemp for parmTemp in parmTemplate.parmTemplates()]
 
 
         self.parentNode.setParmTemplateGroup(self.PTG, rename_conflicting_parms= True)
@@ -379,15 +356,9 @@ class ChildAsset(object):
                 self.parmSources.append(renamedParmTemplate)
 
 
-
-
-
-
-
     def postNodeCreation(self):
         self.replicateParmsInHDA()
         self.genOverallMods()
-        #self.parmSources = self.getParmsOfPrefix(self.parentNode, self.name)
         self.parmTargets = self.getParmsOfPrefix(self.node, self.name)
         self.parmSourceTargetDict = self.getParmSourceTargetDict(self.node, self.name)
         self.linkParmSourcesToTargets()

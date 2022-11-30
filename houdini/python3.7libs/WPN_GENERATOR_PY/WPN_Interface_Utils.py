@@ -1,15 +1,22 @@
-
 from WPN_GENERATOR_PY import WPN_Generator_GRP as WPNGEN
-import imp
-import pprint
-parmValueDict = {}
-import pyperclip
 
+import imp
+import pyperclip
+import hou
+
+from os.path import exists
+from os.path import split
+from os import startfile
+from os import sep
+""" ------------------GLOBALS------------------------ """
+parmValueDict = {}
+dontCopyParms = ['crveShp', 'contourBased','useDrawnSpine', 'shpSwitch', 'excludeParentCutouts']
+debug = False
+""" ------------------GLOBALS------------------------ """
 
 def copyCTRLs(this_node):
     print("Copying Controls")
     saveParmValues(this_node)
-    #pprint.pprint(parmValueDict)
 
 def pasteCTRLs(this_node):
     print("Pasting Controls")
@@ -25,27 +32,25 @@ def empty(this_node):
 def saveParmValues(this_node):
     global parmValueDict
     for parm in this_node.spareParms():
-        #print("Saving:" + parm.name() + " : " + str(parm.eval()))
+        if debug:
+            print("Saving:" + parm.name() + " : " + str(parm.eval()))
         parmValueDict[parm.name()] = parm.eval()
-    #pprint.pprint(parmValueDict)
 
 def setParmValues(this_node):
     global parmValueDict
-    #pprint.pprint(parmValueDict)
     for parm in this_node.spareParms():
-        try:
-            #print("Setting " + parm.name() + " with :" + str(parmValueDict[parm.name()]))
+        if debug:
+            print("Setting " + parm.name() + " with :" + str(parmValueDict[parm.name()]))
+        if  parm.name().split("_")[-1] in dontCopyParms:
+            continue
+        else:
             parm.set(parmValueDict[parm.name()])
-        except:
-            pass
-            #print("skipping "+ parm.name() + " value set")
-    #this_node.setParms(parmValueDict)
 
 
-def reload(this_node):
+def reload(this_node, forceVisible = True):
     imp.reload(WPNGEN)
     PCDict = WPNGEN.getPSDGrpAndChildren(this_node)
-    WPNGEN.renameChildLayersAndSave(PCDict)
+    WPNGEN.renameChildLayersAndSave(PCDict, forceVisible)
     geoCon = this_node.node("GEO_CONTAINER")
     containers = geoCon.glob("*_CONTAINER")
     for container in containers:
@@ -58,14 +63,11 @@ def setRamp(this_parm, this_node, targetNodePath):
     this_parmNameSplit = this_parm.name().split("_")
     this_parmPrefix = '_'.join(this_parmNameSplit[0:-1])
     targetParmName = this_parmNameSplit[-1]
-    #print(targetNodePath)
     targetNode = this_node.node(targetNodePath)
     target = targetNode.parm(targetParmName)
 
     this_ramp = this_parm.eval()
-    #print(this_ramp.keys())
-    #print(this_ramp.values())
-    #print(target.eval())
+
     target.set(this_parm.evalAsRampAtFrame(0))
 
 def refreshRamps(this_node):
@@ -85,3 +87,24 @@ def getAllRampParms(this_node):
             pass
 
     return rampParms
+
+
+def copyFilePath(this_node):
+    fbxNode = this_node.node("EXPORT/filmboxfbx1")
+    exportFilepath = fbxNode.parm("sopoutput").eval()
+
+    if exists(exportFilepath):
+        pyperclip.copy(exportFilepath.replace("/", '\\'))
+        hou.ui.displayMessage("EXPORT FILEPATH has been copied to clipboard!")
+    else:
+        hou.ui.displayMessage("No export found! Please export first!")
+    
+def goToFolder(this_node):
+    fbxNode = this_node.node("EXPORT/filmboxfbx1")
+    exportFilepath = fbxNode.parm("sopoutput").eval()
+
+    if exists(exportFilepath):
+        startfile(split(exportFilepath)[0])
+    else:
+        hou.ui.displayMessage("No export found! Please export first!")
+    

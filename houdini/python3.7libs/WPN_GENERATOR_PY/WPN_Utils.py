@@ -1,8 +1,6 @@
 def setParms(gunPartNode, targetValueDict):
     for targetParm, value in targetValueDict.items():
         gunPartNode.parm(targetParm).set(value)
-        #print(targetParm + " set to " + str((value)))
-
 
 def getAllGunPartNodes(this_node, validPSDLayerNames):
     gunPartNodes = []
@@ -28,17 +26,6 @@ def getNoShapeSuffixName(name):
     return noShapeName
 
 
-# def linkExpressionNodeParmToParm(parmSource, force_evaluate=False, string=False, replaceStr = ""):
-#     parmSourcePath = parmsource.path()
-#     print("ParmSourcePath: " + parmSourcePath)
-#     ch = "ch"
-#     if force_evaluate == True:
-#         ch = "`ch"
-#     if string == True:
-#         ch += "s"
-#     #print(ch + "('../../../" + parmSourceName + "')")
-#     return ch + "('../../../" + parmSourceName + "')"
-
 def linkExpressionParentParmToParm(parmSource, force_evaluate=False, string=False, replaceStr =""):
     parmSourceName = parmSource.name()
     ch = "ch"
@@ -46,12 +33,9 @@ def linkExpressionParentParmToParm(parmSource, force_evaluate=False, string=Fals
         ch = "`ch"
     if string == True:
         ch += "s"
-    #print(ch + "('../../../" + parmSourceName + "')")
     return ch + "('../../../" + parmSourceName + "')"
 
 def getlinkExpression(parmTarget, parmSource):
-    #print("ParmSource: " + parmSource.name())
-    #print("ParmTarget: " + parmTarget.name())
     parmTarget.setExpression("")
     parmTarget.set(parmSource)
     return parmTarget.expression()

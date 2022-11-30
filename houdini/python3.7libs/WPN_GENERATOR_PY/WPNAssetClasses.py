@@ -1,35 +1,26 @@
 from WPN_GENERATOR_PY import PSDAssetClasses as psdAsset
-from WPN_GENERATOR_PY import WPN_Utils
 
 import fnmatch
-import pprint
 import imp
-import inspect
-from functools import wraps
 imp.reload(psdAsset)
 
-gunPartHDAName = "GUNPART_ASSET"
-cutoutHDAName = "CUTOUT_ASSET"
-#addonHDAName  = "ADDON_ASSET"
-frontCutoutHDAName = "FRONT_CUTOUT_ASSET"
+""" ------------------GLOBALS------------------------ """
+gunPartHDAName = "WPN::GUNPART_ASSET::1.0"
+cutoutHDAName = "WPN::SIDE_CUTOUT_ASSET::1.0"
+frontCutoutHDAName = "WPN::FRONT_CUTOUT_ASSET::1.0"
 
 debug = False
-
-
+""" ------------------GLOBALS------------------------ """
 
 class GunPartContainer(psdAsset.Container):
     def childAssetDefinition(self, childLayerName, childlayer):
         if childLayerName == "SIDE":
-            print(childlayer.name + " is SIDE! Creating GunPartAsset")
             childAsset = GunPartAsset(childlayer, self)
         elif fnmatch.fnmatch(childlayer.name, "*FRONT_CUTOUT*"):
-            #print(childlayer.name + " is FRONT CUTOUT! Creating FrontCutoutAsset")
             childAsset = FrontCutoutAsset(childlayer, self)
         elif fnmatch.fnmatch(childlayer.name, "*SIDE_ADDON*"):
-            #print(childlayer.name + " is CUTOUT! Creating CutoutAsset")
             childAsset = AddonAsset(childlayer, self)
         elif fnmatch.fnmatch(childlayer.name, "*SIDE_CUTOUT*"):
-            #print(childlayer.name + " is CUTOUT! Creating CutoutAsset")
             childAsset = CutoutAsset(childlayer, self)
         else:
             childAsset = None
@@ -56,7 +47,7 @@ class GunPartAsset(psdAsset.ChildAsset):
                           "SPINE_layer_name1": self.spineLayer,
                           }
         self.flatParmMods = {"zThickness": 0.012}
-        self.parmModFactor = {"zThickness": 0.85} #Parms to mult modify (mult)
+        self.parmModFactor = {"zThickness": [0.85, 0.5, 1.0]} #Parm to create factor for : [default value, minimum value, maximum value]
 
 
     def setToSameDepthLayer(self, layerName):
@@ -67,9 +58,10 @@ class GunPartAsset(psdAsset.ChildAsset):
             #print("parentObj.psdGroup :" + layer.name)
             if fnmatch.fnmatch(layer.name, layerName):
                 foundLayer = layer
-                if debug:
-                    print("DEBUG: " + self.name + " Found " + layer.name)
-                return foundLayer
+                if foundLayer.is_visible():
+                    if debug:
+                        print("DEBUG: " + self.name + " Found " + layer.name)
+                    return foundLayer
         if foundLayer == None:
             if debug:
                 print("No " + layerName + " layer found!" )
