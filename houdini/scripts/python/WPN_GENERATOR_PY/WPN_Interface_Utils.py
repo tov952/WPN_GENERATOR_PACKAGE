@@ -89,22 +89,26 @@ def getAllRampParms(this_node):
     return rampParms
 
 
-def copyFilePath(this_node):
-    fbxNode = this_node.node("EXPORT/filmboxfbx1")
-    exportFilepath = fbxNode.parm("sopoutput").eval()
+def copyFilePath(this_node, exportType = "fbx"):
+    if exportType=="fbx":
+        node = this_node.node("EXPORT/filmboxfbx1")
+    elif exportType=="obj":
+        node = this_node.node("EXPORT/OBJ_EXPORT")
+    exportFilepath = node.parm("sopoutput").eval()
 
-    if exists(exportFilepath):
-        pyperclip.copy(exportFilepath.replace("/", '\\'))
-        hou.ui.displayMessage("EXPORT FILEPATH has been copied to clipboard!")
-    else:
-        hou.ui.displayMessage("No export found! Please export first!")
+    pyperclip.copy(exportFilepath.replace("/", '\\'))
+    hou.ui.displayMessage("EXPORT FILEPATH has been copied to clipboard!")
+
     
 def goToFolder(this_node):
     fbxNode = this_node.node("EXPORT/filmboxfbx1")
-    exportFilepath = fbxNode.parm("sopoutput").eval()
+    objNode = this_node.node("EXPORT/OBJ_EXPORT")
+    fbxExportFilepath = fbxNode.parm("sopoutput").eval()
+    objExportFilepath = objNode.parm("sopoutput").eval()
 
-    if exists(exportFilepath):
-        startfile(split(exportFilepath)[0])
-    else:
+    if not exists(fbxExportFilepath) and not exists(objExportFilepath):
         hou.ui.displayMessage("No export found! Please export first!")
+    else:
+        startfile(split(fbxExportFilepath)[0])
+
     
