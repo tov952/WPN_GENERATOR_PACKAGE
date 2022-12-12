@@ -28,15 +28,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/_PORTFOLIO/HOUDINI/FRAMEWORK/WPN_GENERATOR_PACKAGE/houdini/scripts/python/WPN_GENERATOR_PY",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/_PORTFOLIO/HOUDINI/FRAMEWORK/WPN_GENERATOR_PACKAGE/houdini/scripts/python/WPN_GENERATOR_PY&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Users\Jason\Documents\houdini18.5\python3.7libs\WPN_GENERATOR_PY" />
@@ -146,7 +146,8 @@
       <workItem from="1643031121323" duration="1309000" />
       <workItem from="1643092317831" duration="686000" />
       <workItem from="1653923825419" duration="1881000" />
-      <workItem from="1670527619074" duration="1316000" />
+      <workItem from="1670527619074" duration="2283000" />
+      <workItem from="1670754144024" duration="5272000" />
     </task>
     <servers />
   </component>

@@ -5,7 +5,13 @@
  Note, that two definitions of the same element are not allowed in
  a single file. -->
 
-  <toolshelf name="WPN_GEN_TOOLS" label="WPN_GEN_TOOLS">
-    <memberTool name="reloadModules"/>
+  <toolshelf name="wpnGenDevTools" label="WPN_GEN_Dev_Toolbar">
+    <memberTool name="reload"/>
   </toolshelf>
+
+  <tool name="reload" label="Reload Modules" icon="hicon:/SVGIcons.index?BUTTONS_cook.svg">
+    <script scriptType="python"><![CDATA[from WPN_GENERATOR_PY import WPN_GEN_DEV_TOOLS as WPN_DEV
+
+WPN_DEV.reloadModules()]]></script>
+  </tool>
 </shelfDocument>

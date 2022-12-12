@@ -31,20 +31,28 @@ def empty(this_node):
 
 def saveParmValues(this_node):
     global parmValueDict
-    for parm in this_node.spareParms():
+    if len(this_node.spareParms()) != 0:
+        for parm in this_node.spareParms():
+            if debug:
+                print("Saving:" + parm.name() + " : " + str(parm.eval()))
+            parmValueDict[parm.name()] = parm.eval()
+    else:
         if debug:
-            print("Saving:" + parm.name() + " : " + str(parm.eval()))
-        parmValueDict[parm.name()] = parm.eval()
+            print("No spare parms found. Not saving parm values.")
 
 def setParmValues(this_node):
     global parmValueDict
-    for parm in this_node.spareParms():
-        if debug:
-            print("Setting " + parm.name() + " with :" + str(parmValueDict[parm.name()]))
-        if  parm.name().split("_")[-1] in dontCopyParms:
-            continue
-        else:
-            parm.set(parmValueDict[parm.name()])
+    if len(parmValueDict) != 0:
+        for parm in this_node.spareParms():
+            if  parm.name().split("_")[-1] in dontCopyParms:
+                continue
+            else:
+                if debug:
+                    print("Setting " + parm.name() + " with :" + str(parmValueDict[parm.name()]))
+                try:
+                    parm.set(parmValueDict[parm.name()])
+                except:
+                    continue
 
 
 def reload(this_node, forceVisible = True):
