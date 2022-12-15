@@ -9,7 +9,7 @@ gunPartHDAName = "WPN::GUNPART_ASSET::1.0"
 cutoutHDAName = "WPN::SIDE_CUTOUT_ASSET::1.0"
 frontCutoutHDAName = "WPN::FRONT_CUTOUT_ASSET::1.0"
 
-debug = False
+debug = True
 """ ------------------GLOBALS------------------------ """
 
 class GunPartContainer(psdAsset.Container):
@@ -78,7 +78,7 @@ class GunPartAsset(psdAsset.ChildAsset):
             if debug:
                 print("DEBUG: Front Layer Exists! Setting Shape Profile to FRONT")
             self.node.parm("crveShp").set(1)
-        elif self.frontLayer != None:
+        elif self.topLayer != None:
             if debug:
                 print("DEBUG: Top Layer Exists! Setting Shape Profile to TOP")
                 self.node.parm("crveShp").set(2)
