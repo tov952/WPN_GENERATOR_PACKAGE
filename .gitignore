@@ -3,3 +3,5 @@
 *.obj
 *.sc
 *.png
+*.spp
+*.painter_lock
