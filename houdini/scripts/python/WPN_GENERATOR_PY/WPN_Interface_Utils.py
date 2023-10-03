@@ -100,9 +100,9 @@ def getAllRampParms(this_node):
 
 def copyFilePath(this_node, exportType = "fbx"):
     if exportType=="fbx":
-        node = this_node.node("EXPORT/filmboxfbx1")
+        node = this_node.node("EXPORT/HI_RES_FBX")
     elif exportType=="obj":
-        node = this_node.node("EXPORT/OBJ_EXPORT")
+        node = this_node.node("EXPORT/HI_RES_OBJ")
     exportFilepath = node.parm("sopoutput").eval()
 
     pyperclip.copy(exportFilepath.replace("/", '\\'))
@@ -110,8 +110,8 @@ def copyFilePath(this_node, exportType = "fbx"):
 
     
 def goToFolder(this_node):
-    fbxNode = this_node.node("EXPORT/filmboxfbx1")
-    objNode = this_node.node("EXPORT/OBJ_EXPORT")
+    fbxNode = this_node.node("EXPORT/HI_RES_FBX")
+    objNode = this_node.node("EXPORT/HI_RES_OBJ")
     fbxExportFilepath = fbxNode.parm("sopoutput").eval()
     objExportFilepath = objNode.parm("sopoutput").eval()
 
