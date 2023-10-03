@@ -37,7 +37,8 @@ def rebuild(this_node, forceVisible):
 
     if debug:
         print("---------------------Get Parent-Child Dict---------------------------")
-    PCDict = getPSDGrpAndChildren(this_node)
+    cleanUpPSD(this_node)
+    PCDict = getPSDGrpAndChildren()
     print("---------------------Saving Renamed PSDs-----------------------------")
     savedPSDPath = renameChildLayersAndSave(PCDict, forceVisible)
     savedPSD = PSDImage.open(savedPSDPath)
@@ -205,12 +206,10 @@ def createAssetObjs(this_node, group):
 
 
 
-def getPSDGrpAndChildren(this_node):
+def getPSDGrpAndChildren():
     # Gets list of Grps
     global psd
     global psdFilepath
-    psdFilepath = this_node.parm("file").eval()
-    psd = PSDImage.open(psdFilepath)
     for i, layer in enumerate(psd):
         getChildOfLayer(layer)
     if debug:
@@ -220,6 +219,13 @@ def getPSDGrpAndChildren(this_node):
 
     return parentChildDict
 
+def cleanUpPSD(this_node):
+    global psd
+    global psdFilepath
+    psdFilepath = this_node.parm("file").eval()
+    psd = PSDImage.open(psdFilepath)
+    for i, layer in enumerate(psd.descendants()):
+        layer.name = layer.name.rstrip("\x00")
 
 def getChildOfLayer(layer):
     if layer.is_group():

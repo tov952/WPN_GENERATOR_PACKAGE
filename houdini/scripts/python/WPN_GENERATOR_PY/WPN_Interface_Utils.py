@@ -57,7 +57,8 @@ def setParmValues(this_node):
 
 def reload(this_node, forceVisible = True):
     imp.reload(WPNGEN)
-    PCDict = WPNGEN.getPSDGrpAndChildren(this_node)
+    WPNGEN.cleanUpPSD(this_node)
+    PCDict = WPNGEN.getPSDGrpAndChildren()
     WPNGEN.renameChildLayersAndSave(PCDict, forceVisible)
     geoCon = this_node.node("GEO_CONTAINER")
     containers = geoCon.glob("*_CONTAINER")
