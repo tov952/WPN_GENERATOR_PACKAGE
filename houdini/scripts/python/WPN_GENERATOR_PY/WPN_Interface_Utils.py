@@ -97,6 +97,38 @@ def getAllRampParms(this_node):
 
     return rampParms
 
+def preExportSetup(this_node):
+    preExportNode = this_node.node("PRE_EXPORT_PROCESS")
+    hiResExportNode = preExportNode.node("OUT_HIGH_RES_EXPORT")
+    lowResExportNode = preExportNode.node("OUT_LOW_RES_EXPORT")
+
+    hiResMeshNames = hiResExportNode.geometry().stringListAttribValue("MESHES")
+    lowResMeshNames = lowResExportNode.geometry().stringListAttribValue("MESHES")
+
+    exportNode = this_node.node("EXPORT")
+    lowResExportGeoNode = exportNode.node("LOW_RES_GEOMETRY")
+    hiResExportGeoNode = exportNode.node("HIGH_RES_GEOMETRY")
+
+    populateExportGeometries(hiResMeshNames, hiResExportNode, hiResExportGeoNode )
+    populateExportGeometries(lowResMeshNames, lowResExportNode, lowResExportGeoNode )
+
+def populateExportGeometries(meshNames, exportNode, targetNode):
+
+    targetNode.deleteItems(targetNode.allItems())
+    for meshName in meshNames:
+        geo = targetNode.createNode("geo", meshName)
+        objMerge = geo.createNode("object_merge")
+        objMerge.parm("objpath1").set(exportNode.path())
+        blast = geo.createNode("blast")
+        blast.parm("group").set(f"@MESH_NAME={meshName}")
+        blast.parm("negate").set(True)
+        blast.setFirstInput(objMerge)
+        blast.setDisplayFlag(True)
+        blast.setRenderFlag(True)
+        geo.layoutChildren()
+    targetNode.layoutChildren()
+
+
 
 def copyFilePath(this_node, exportType = "fbx"):
     if exportType=="fbx":
