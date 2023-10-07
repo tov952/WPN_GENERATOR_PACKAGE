@@ -8,6 +8,7 @@ imp.reload(psdAsset)
 gunPartHDAName = "WPN::GUNPART_ASSET::1.0"
 cutoutHDAName = "WPN::SIDE_CUTOUT_ASSET::1.0"
 frontCutoutHDAName = "WPN::FRONT_CUTOUT_ASSET::1.0"
+detailHDAName = "WPN::DETAIL_ASSET::1.0"
 
 debug = True
 """ ------------------GLOBALS------------------------ """
@@ -22,6 +23,8 @@ class GunPartContainer(psdAsset.Container):
             childAsset = AddonAsset(childlayer, self)
         elif fnmatch.fnmatch(childlayer.name, "*SIDE_CUTOUT*"):
             childAsset = CutoutAsset(childlayer, self)
+        elif fnmatch.fnmatch(childlayer.name, "*SIDE_DETAIL*"):
+            childAsset = DetailAsset(childlayer, self)
         else:
             childAsset = None
         return childAsset
@@ -155,4 +158,13 @@ class FrontCutoutAsset(CutoutAsset):
         super( FrontCutoutAsset, self).__init__(*args, **kwargs)
         self.nodeType = frontCutoutHDAName
 
+class DetailAsset(psdAsset.ChildAsset):
+    def __init__(self, *args, **kwargs):
+        super( DetailAsset, self).__init__(*args, **kwargs)
+        self.nodeType = detailHDAName
+        self.parmLayerDict = { "layer_name1": self.layer}
 
+
+    def postNodeCreation(self, *args, **kwargs):
+        super(DetailAsset, self).postNodeCreation(*args, **kwargs)
+        self.node.setDisplayFlag(False)
