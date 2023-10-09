@@ -3,6 +3,7 @@ from WPN_GENERATOR_PY import WPN_Generator_GRP as WPNGEN
 import imp
 import pyperclip
 import hou
+import fnmatch
 
 from os.path import exists
 from os.path import split
@@ -67,6 +68,15 @@ def reload(this_node, forceVisible = True):
         for node in nodes:
             node.parm("recook").pressButton()
 
+def reloadDetailLibrary(this_node, forceVisible = True):
+    imp.reload(WPNGEN)
+    geoCon = this_node.node("GEO_CONTAINER")
+    containers = geoCon.glob("*_CONTAINER")
+    for container in containers:
+        nodes = container.children()
+        for node in nodes:
+            if fnmatch.fnmatch(node.name(), "*DETAIL*"):
+                node.parm("reloadDetailLibrary").pressButton()
 
 def setRamp(this_parm, this_node, targetNodePath):
     this_parmNameSplit = this_parm.name().split("_")

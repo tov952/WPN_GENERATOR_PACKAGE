@@ -351,6 +351,7 @@ class ChildAsset(object):
             else:
                 renamedParmTemplate = self.PTG.find(parmTemplate.name())
                 renamedParmTemplate.setName(self.name + "_" + parmTemplate.name())
+                renamedParmTemplate.setScriptCallback("")
                 self.PTG.replace(parmTemplate.name(), renamedParmTemplate)
                 """Get parmSources only within this Asset"""
                 self.parmSources.append(renamedParmTemplate)
