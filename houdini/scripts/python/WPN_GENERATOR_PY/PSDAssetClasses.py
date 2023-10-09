@@ -350,6 +350,8 @@ class ChildAsset(object):
                 self.recursiveSetParmPrefixAndConditionals(parmTemplate)
             else:
                 renamedParmTemplate = self.PTG.find(parmTemplate.name())
+
+                # Add any parm template setup here ( post-parm creation )
                 renamedParmTemplate.setName(self.name + "_" + parmTemplate.name())
                 renamedParmTemplate.setScriptCallback("")
                 self.PTG.replace(parmTemplate.name(), renamedParmTemplate)
