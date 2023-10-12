@@ -9,8 +9,9 @@ gunPartHDAName = "WPN::GUNPART_ASSET::1.0"
 cutoutHDAName = "WPN::SIDE_CUTOUT_ASSET::1.0"
 frontCutoutHDAName = "WPN::FRONT_CUTOUT_ASSET::1.0"
 detailHDAName = "WPN::DETAIL_ASSET::1.0"
+textHDAName = "WPN::DETAIL_TEXT_ASSET::1.0"
 
-debug = True
+debug = False
 """ ------------------GLOBALS------------------------ """
 
 class GunPartContainer(psdAsset.Container):
@@ -25,6 +26,8 @@ class GunPartContainer(psdAsset.Container):
             childAsset = CutoutAsset(childlayer, self)
         elif fnmatch.fnmatch(childlayer.name, "*SIDE_DETAIL*"):
             childAsset = DetailAsset(childlayer, self)
+        elif fnmatch.fnmatch(childlayer.name, "*SIDE_TEXT*"):
+            childAsset = TextAsset(childlayer, self)
         else:
             childAsset = None
         return childAsset
@@ -167,4 +170,15 @@ class DetailAsset(psdAsset.ChildAsset):
 
     def postNodeCreation(self, *args, **kwargs):
         super(DetailAsset, self).postNodeCreation(*args, **kwargs)
+        self.node.setDisplayFlag(False)
+
+class TextAsset(psdAsset.ChildAsset):
+    def __init__(self, *args, **kwargs):
+        super( TextAsset, self).__init__(*args, **kwargs)
+        self.nodeType = textHDAName
+        self.parmLayerDict = { "layer_name1": self.layer}
+
+
+    def postNodeCreation(self, *args, **kwargs):
+        super(TextAsset, self).postNodeCreation(*args, **kwargs)
         self.node.setDisplayFlag(False)
